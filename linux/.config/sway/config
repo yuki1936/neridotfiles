@@ -1,0 +1,45 @@
+# ~/.config/sway/config
+
+# 使用 Mod 键（通常是 Windows 键）
+set $mod Mod4
+
+# 启动终端
+bindsym $mod+Return exec alacritty
+
+# 关闭窗口
+bindsym $mod+Shift+q kill
+
+# 重载配置文件
+bindsym $mod+Shift+c reload
+
+# 重启 sway
+bindsym $mod+Shift+r restart
+
+# 退出 sway
+bindsym $mod+Shift+e exit
+
+# 切换工作区
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+
+# 分屏布局
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# 移动焦点
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+
+# 移动窗口
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
+
+# 自动启动程序（示例：启动通知守护进程）
+exec_always waybar
+exec_always swayidle -w timeout 300 'swaylock -f' timeout 600 'swaymsg "output * dpms off"'
+
